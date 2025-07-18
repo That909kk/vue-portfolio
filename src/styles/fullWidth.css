@@ -1,0 +1,43 @@
+/* Full Width CSS Styles */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  width: 100vw !important;
+  max-width: 100% !important;
+}
+
+.v-application {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.v-container {
+  width: 100vw !important;
+  max-width: 100% !important;
+}
+
+.v-row {
+  margin: 0 !important;
+}
+
+.portfolio-content,
+.tech-projects-view,
+.tech-about-view,
+.tech-skills-view,
+.tech-contact-view {
+  width: 100vw !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+section {
+  width: 100vw !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}

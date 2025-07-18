@@ -1,0 +1,104 @@
+{
+  "about_me": "I'm a final-year Software Engineering student with a strong interest in new technologies, currently seeking an internship opportunity to apply and enhance my skills in a real-world environment. I have hands-on experience working with Java (Spring Boot), Node.js, and building user interfaces using Reactjs and React Native. I'm also familiar with Docker, RESTful APIs. I'm a fast learner, a collaborative team player, and a problem-solver who is always eager to explore new technologies. I believe my enthusiasm, adaptability, and willingness to grow will allow me to contribute positively to any development team.",
+  "personal_information": {
+    "name": "Le Minh That",
+    "role": "INTERN QUALITY CONTROL ENGINEER",
+    "gender": "Male",
+    "phone": "0825371577",
+    "email": "mthat456@gmail.com",
+    "date_of_birth": "2003-02-21",
+    "address": "Tay Thanh, Tan Phu, Ho Chi Minh City",
+    "github": "https://github.com/That909kk"
+  },
+  "education": {
+    "university": "Industrial University of Ho Chi Minh City",
+    "degree": "Bachelor of Software Engineering",
+    "major": "Software Engineering",
+    "period": "2021 – 2025 (Expected)",
+    "gpa": "3.0 / 4.0",
+    "languages": {
+      "english": "Expected 6/2025",
+      "vietnamese": "Native"
+    }
+  },
+  "technical_skills": {
+    "programming_frameworks": [
+      "Java",
+      "Spring Boot",
+      "Node.js",
+      "React Native",
+      "Python"
+    ],
+    "devops_tools": [
+      "Docker",
+      "Git",
+      "GitHub",
+      "MCP Server"
+    ],
+    "cloud_storage": [
+      "AWS S3",
+      "EC2"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MariaDB",
+      "MongoDB",
+      "DynamoDB",
+      "Neo4j"
+    ],
+    "architecture_others": [
+      "Basic knowledge of Microservices",
+      "Kafka",
+      "Redis",
+      "Nginx",
+      "Wordpress"
+    ],
+    "ai_assisted_development": [
+      "GitHub Copilot",
+      "automation tools"
+    ],
+    "additional_skills": [
+      "Able to support IT Help Desk roles",
+      "Provide basic technical support"
+    ]
+  },
+  "projects": [
+    {
+      "name": "University Enrollment System",
+      "role": "Full-Stack Developer",
+      "period": "February 2025 - April 2025",
+      "tech_stack": [
+        "Spring Boot",
+        "Reactjs",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "Kafka",
+        "Docker",
+        "Nginx",
+        "Zipkin",
+        "Gradle",
+        "RESTful API",
+        "Microservices"
+      ],
+      "description": "Developed a university enrollment system using microservices architecture, working on both backend and frontend. Backend: Built scalable RESTful APIs with Spring Boot, using PostgreSQL, MongoDB, Redis, and Kafka for messaging. Frontend: Designed and implemented a responsive interface with Reactjs. Infrastructure: Containerized services with Docker, routed traffic via Nginx, and integrated Zipkin for distributed tracing. This project helped me grasp core microservices concepts such as service independence, RESTful API design, Kafka-based communication, and traffic routing with Nginx. I also learned how Zipkin enhances debugging and monitoring across services. These experiences equipped me with the ability to build scalable, maintainable systems—skills I'm eager to apply in future full-stack development projects.",
+      "github": "https://github.com/HKThanh/University-Enrollment-System.git"
+    },
+    {
+      "name": "Real-Time Welo Chat Application",
+      "role": "Mobile Developer & Backend",
+      "period": "February 2025 - April 2025",
+      "tech_stack": [
+        "React Native",
+        "Express.js",
+        "AWS S3",
+        "GitHub Copilot",
+        "MCP Server",
+        "DynamoDB",
+        "Docker"
+      ],
+      "description": "Developed a real-time chat mobile application using React Native and Socket.io, supporting core features like message sending, file sharing, and live updates. Contributed to the backend with Express.js, integrating AWS S3 for file storage. Worked in a team using MCP Server and GitHub Copilot, which helped reduce development time. Through the project, I improved my understanding of team communication in backend/frontend collaboration, gained hands-on experience in AI-assisted development, and deepened my knowledge of React Native and software automation tools.",
+      "github": "https://github.com/HKThanh/subproject-app-chat-CNM.git"
+    }
+  ]
+}

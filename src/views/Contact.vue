@@ -6,11 +6,11 @@
       <v-container class="header-content">
         <h1 class="tech-title text-center">
           <span class="code-bracket">&lt;</span>
-          Contact
+          {{ uiText.sections.contact_title }}
           <span class="code-bracket">/&gt;</span>
         </h1>
         <p class="tech-subtitle text-center">
-          Let's connect! I'm always open to discussing new opportunities and collaborations.
+          {{ uiText.sections.contact_subtitle }}
         </p>
       </v-container>
     </div>
@@ -120,7 +120,7 @@
                         <v-icon :color="contact.color">{{ contact.icon }}</v-icon>
                       </div>
                       <div class="contact-text">
-                        <h4 class="contact-title">{{ contact.title }}</h4>
+                        <h4 class="contact-title">{{ contact.label }}</h4>
                         <p class="contact-value">{{ contact.value }}</p>
                       </div>
                     </div>
@@ -185,7 +185,14 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
+import emailjs from '@emailjs/browser'
 import profileData from '../data/data.json'
+import { EMAIL_CONFIG } from '../config/email'
+
+const uiText = profileData.ui_text
+const contactInfo = profileData.contact_info
+const socialLinks = profileData.social_links
+const workingHours = profileData.working_hours
 
 const form = ref()
 const valid = ref(false)
@@ -224,78 +231,53 @@ const messageRules = [
   (v: string) => (v && v.length >= 10) || 'Message must be at least 10 characters'
 ]
 
-const contactInfo = [
-  {
-    icon: 'mdi-email',
-    title: 'Email',
-    value: profileData.personal_information.email,
-    color: '#106EBE'
-  },
-  {
-    icon: 'mdi-phone',
-    title: 'Phone',
-    value: profileData.personal_information.phone,
-    color: '#0FFCBE'
-  },
-  {
-    icon: 'mdi-map-marker',
-    title: 'Address',
-    value: profileData.personal_information.address,
-    color: '#106EBE'
-  },
-  {
-    icon: 'mdi-github',
-    title: 'GitHub',
-    value: profileData.personal_information.github,
-    color: '#333'
-  }
-]
-
-const socialLinks = [
-  {
-    icon: 'mdi-linkedin',
-    color: '#0077B5',
-    url: 'https://linkedin.com/in/yourprofile'
-  },
-  {
-    icon: 'mdi-github',
-    color: '#333',
-    url: profileData.personal_information.github
-  }
-]
-
-const workingHours = [
-  { day: 'Monday - Friday', hours: '9:00 - 18:00' },
-  { day: 'Saturday', hours: '10:00 - 16:00' },
-  { day: 'Sunday', hours: 'By appointment' }
-]
-
 const submitForm = async () => {
   if (!valid.value) return
   
   loading.value = true
   
   try {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    // Prepare email data
+    const emailData = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      to_email: profileData.personal_information.email, // mthat456@gmail.com
+      reply_to: formData.email
+    }
     
-    // Reset form
-    Object.assign(formData, {
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    })
+    // Send email via EmailJS
+    const response = await emailjs.send(
+      EMAIL_CONFIG.SERVICE_ID,
+      EMAIL_CONFIG.TEMPLATE_ID,
+      emailData,
+      EMAIL_CONFIG.PUBLIC_KEY
+    )
     
-    form.value?.reset()
-    
-    snackbar.show = true
-    snackbar.message = 'Your message has been sent successfully! I will respond as soon as possible.'
-    snackbar.color = 'success'
+    if (response.status === 200) {
+      // Reset form
+      Object.assign(formData, {
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      })
+      
+      form.value?.reset()
+      
+      snackbar.show = true
+      snackbar.message = 'Your message has been sent successfully! I will respond as soon as possible.'
+      snackbar.color = 'success'
+    } else {
+      throw new Error('Email sending failed')
+    }
     
   } catch (error) {
+    console.error('Error sending email:', error)
+    
     snackbar.show = true
-    snackbar.message = 'An error occurred while sending your message. Please try again!'
+    snackbar.message = 'An error occurred while sending your message. Please try again or contact me directly at mthat456@gmail.com'
     snackbar.color = 'error'
   } finally {
     loading.value = false
@@ -418,11 +400,16 @@ const submitForm = async () => {
 .form-title {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #106EBE;
+  color: #2d3748;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+}
+
+.form-title .v-icon {
+  color: #106EBE;
+  margin-right: 0.5rem;
 }
 
 .form-glow {
@@ -444,6 +431,7 @@ const submitForm = async () => {
   border-radius: 12px;
   border: 2px solid #e1e8ed;
   transition: all 0.3s ease;
+  background-color: #ffffff;
 }
 
 .tech-input :deep(.v-field:hover) {
@@ -451,8 +439,61 @@ const submitForm = async () => {
 }
 
 .tech-input :deep(.v-field--focused) {
-  border-color: #0FFCBE;
-  box-shadow: 0 0 0 3px rgba(15, 252, 190, 0.1);
+  border-color: #106EBE;
+  box-shadow: 0 0 0 3px rgba(16, 110, 190, 0.1);
+}
+
+/* Sửa màu chữ nhất quán */
+.tech-input :deep(.v-field-label) {
+  color: #666666 !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.tech-input :deep(.v-field-label--floating) {
+  background-color: #ffffff !important;
+  padding: 0 8px !important;
+  margin-left: -4px !important;
+  border-radius: 4px !important;
+  color: #666666 !important;
+}
+
+.tech-input :deep(.v-field__input) {
+  color: #333333 !important;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.tech-input :deep(.v-field__input input) {
+  color: #333333 !important;
+}
+
+.tech-input :deep(.v-field__input textarea) {
+  color: #333333 !important;
+}
+
+.tech-input :deep(.v-field__prepend-inner .v-icon) {
+  color: #106EBE !important;
+  opacity: 0.7;
+}
+
+.tech-input :deep(.v-field--focused .v-field-label) {
+  color: #106EBE !important;
+  background-color: #ffffff !important;
+}
+
+.tech-input :deep(.v-field--error .v-field-label) {
+  color: #dc3545 !important;
+  background-color: #ffffff !important;
+}
+
+.tech-input :deep(.v-field--error) {
+  border-color: #dc3545 !important;
+}
+
+.tech-input :deep(.v-messages__message) {
+  color: #dc3545 !important;
+  font-size: 0.85rem;
 }
 
 .tech-submit-btn {

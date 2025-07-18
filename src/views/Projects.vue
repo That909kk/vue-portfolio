@@ -8,10 +8,10 @@
           <v-col cols="12" lg="10" class="text-center">
             <h1 class="tech-title">
               <span class="code-bracket">&lt;</span>
-              Projects
+              {{ uiText.sections.projects_title }}
               <span class="code-bracket">/&gt;</span>
             </h1>
-            <p class="tech-subtitle">A showcase of my technical work and coding projects</p>
+            <p class="tech-subtitle">{{ uiText.sections.projects_subtitle }}</p>
           </v-col>
         </v-row>
       </v-container>
@@ -127,6 +127,9 @@
 import { ref, computed } from 'vue'
 import profileData from '../data/data.json'
 
+const uiText = profileData.ui_text
+const githubStats = profileData.github_stats
+
 const selectedFilter = ref('All')
 
 // Extract unique technologies from all projects to use as filters
@@ -156,14 +159,6 @@ const projectsData = profileData.projects.map(project => ({
   period: project.period,
   category: project.tech_stack[0] // Use first tech as default category
 }))
-
-// GitHub stats (can be updated based on actual data)
-const githubStats = [
-  { icon: 'mdi-source-repository', value: '10+', label: 'Repositories' },
-  { icon: 'mdi-star', value: '50+', label: 'Stars' },
-  { icon: 'mdi-source-fork', value: '15+', label: 'Forks' },
-  { icon: 'mdi-account-multiple', value: '5+', label: 'Contributors' }
-]
 
 const filteredProjects = computed(() => {
   if (selectedFilter.value === 'All') {

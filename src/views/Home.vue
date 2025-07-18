@@ -9,67 +9,72 @@
         <v-row justify="center" align="center" class="fill-height">
           <v-col cols="12" lg="10" class="position-relative">
             <v-row>
-              <v-col cols="12" md="6" class="d-flex align-center">
+              <v-col cols="12" md="7" class="d-flex align-center">
                 <div class="hero-text">
                   <div class="typing-container">
-                    <span class="typing-text">Hello World! I'm</span>
+                    <span class="typing-text">{{ heroSection.typing_text }}</span>
                   </div>
                   
                   <h1 class="hero-name">
-                    <span class="text-gradient">{{ personalInfo.name }}</span>
+                    <span class="text-gradient">{{ heroSection.name }}</span>
                   </h1>
                   
                   <div class="role-badge">
                     <span class="badge-icon">&#60;/&#62;</span>
-                    <span class="badge-text">{{ personalInfo.role }}</span>
+                    <span class="badge-text">{{ heroSection.title }}</span>
                   </div>
                   
                   <p class="bio-text">
-                    <span class="code-comment">// {{ profileData.about_me ? profileData.about_me.substring(0, 150) + '...' : 'Passionate developer focused on creating modern web applications' }}</span>
+                    <span class="code-comment">// {{ heroSection.bio_comment }}</span>
                   </p>
                   
                   <div class="hero-buttons">
-                    <v-btn
-                      class="tech-button primary-btn"
-                      elevation="0"
-                      to="/contact"
-                    >
-                      <span class="btn-text">Get In Touch</span>
-                      <v-icon right class="btn-icon">mdi-arrow-right</v-icon>
-                    </v-btn>
+                    <div class="button-row">
+                      <v-btn
+                        class="tech-button primary-btn"
+                        elevation="0"
+                        :to="heroSection.cta_link"
+                      >
+                        <span class="btn-text">{{ heroSection.cta_text }}</span>
+                        <v-icon right class="btn-icon">mdi-arrow-right</v-icon>
+                      </v-btn>
+                      
+                      <v-btn
+                        class="tech-button secondary-btn"
+                        elevation="0"
+                        :to="heroSection.resume_link"
+                      >
+                        <v-icon left class="btn-icon">mdi-code-tags</v-icon>
+                        <span class="btn-text">{{ heroSection.resume_text }}</span>
+                      </v-btn>
+                    </div>
                     
-                    <v-btn
-                      class="tech-button secondary-btn ml-4"
-                      elevation="0"
-                      to="/projects"
-                    >
-                      <v-icon left class="btn-icon">mdi-code-tags</v-icon>
-                      <span class="btn-text">View Projects</span>
-                    </v-btn>
+                    <div class="button-row">
+                      <v-btn
+                        class="tech-button download-btn"
+                        elevation="0"
+                        @click="downloadCV"
+                      >
+                        <v-icon left class="btn-icon">mdi-download</v-icon>
+                        <span class="btn-text">My CV</span>
+                      </v-btn>
+                    </div>
                   </div>
                   
                   <div class="tech-stats">
-                    <div class="stat-item">
-                      <div class="stat-value">2+</div>
-                      <div class="stat-label">Years Experience</div>
-                    </div>
-                    
-                    <div class="stat-item">
-                      <div class="stat-value">10+</div>
-                      <div class="stat-label">Projects</div>
-                    </div>
-                    
-                    <div class="stat-divider"></div>
-                    
-                    <div class="stat-item">
-                      <div class="stat-value">5+</div>
-                      <div class="stat-label">Technologies</div>
-                    </div>
+                    <template v-for="(stat, index) in heroSection.tech_stats" :key="index">
+                      <div class="stat-item">
+                        <div class="stat-value">{{ stat.value }}</div>
+                        <div class="stat-label">{{ stat.label }}</div>
+                      </div>
+                      
+                      <div v-if="index < heroSection.tech_stats.length - 1" class="stat-divider"></div>
+                    </template>
                   </div>
                 </div>
               </v-col>
               
-              <v-col cols="12" md="6" class="d-flex justify-center align-center">
+              <v-col cols="12" md="5" class="d-flex justify-center align-center">
                 <div class="hero-graphic">
                   <div class="code-editor">
                     <div class="editor-header">
@@ -93,17 +98,22 @@
                         <span>11</span>
                         <span>12</span>
                         <span>13</span>
+                        <span>14</span>
+                        <span>15</span>
                       </div>
                       <pre><code><span class="code-punctuation">{</span>
-  <span class="code-property">"name"</span><span class="code-punctuation">:</span> <span class="code-string">"{{ personalInfo.name }}"</span><span class="code-punctuation">,</span>
-  <span class="code-property">"role"</span><span class="code-punctuation">:</span> <span class="code-string">"{{ personalInfo.role }}"</span><span class="code-punctuation">,</span>
-  <span class="code-property">"email"</span><span class="code-punctuation">:</span> <span class="code-string">"{{ personalInfo.email }}"</span><span class="code-punctuation">,</span>
-  <span class="code-property">"github"</span><span class="code-punctuation">:</span> <span class="code-string">"{{ personalInfo.github }}"</span><span class="code-punctuation">,</span>
-  <span class="code-property">"location"</span><span class="code-punctuation">:</span> <span class="code-string">"{{ personalInfo.location || 'Vietnam' }}"</span><span class="code-punctuation">,</span>
+  <span class="code-property">"name"</span><span class="code-punctuation">:</span> <span class="code-string">"{{ heroSection.code_snippet.properties.name }}"</span><span class="code-punctuation">,</span>
+  <span class="code-property">"role"</span><span class="code-punctuation">:</span> <span class="code-string">"{{ heroSection.code_snippet.properties.role }}"</span><span class="code-punctuation">,</span>
+  <span class="code-property">"email"</span><span class="code-punctuation">:</span> <span class="code-string">"{{ heroSection.code_snippet.properties.email }}"</span><span class="code-punctuation">,</span>
+  <span class="code-property">"github"</span><span class="code-punctuation">:</span> <span class="code-string">"{{ heroSection.code_snippet.properties.github }}"</span><span class="code-punctuation">,</span>
+  <span class="code-property">"location"</span><span class="code-punctuation">:</span> <span class="code-string">"{{ heroSection.code_snippet.properties.location }}"</span><span class="code-punctuation">,</span>
   <span class="code-property">"skills"</span><span class="code-punctuation">:</span> <span class="code-punctuation">[</span>
-    <span class="code-string">"{{ skillsList[0] || 'Java' }}"</span><span class="code-punctuation">,</span>
-    <span class="code-string">"{{ skillsList[1] || 'Spring Boot' }}"</span><span class="code-punctuation">,</span>
-    <span class="code-string">"{{ skillsList[2] || 'Node.js' }}"</span>
+    <span class="code-string">"{{ heroSection.code_snippet.properties.skills[0] }}"</span><span class="code-punctuation">,</span>
+    <span class="code-string">"{{ heroSection.code_snippet.properties.skills[1] }}"</span><span class="code-punctuation">,</span>
+    <span class="code-string">"{{ heroSection.code_snippet.properties.skills[2] }}"</span><span class="code-punctuation">,</span>
+    <span class="code-string">"{{ heroSection.code_snippet.properties.skills[3] }}"</span><span class="code-punctuation">,</span>
+    <span class="code-string">"{{ heroSection.code_snippet.properties.skills[4] }}"</span><span class="code-punctuation">,</span>
+    <span class="code-string">"{{ heroSection.code_snippet.properties.skills[5] }}"</span>
   <span class="code-punctuation">]</span>
 <span class="code-punctuation">}</span></code></pre>
                       <div class="editor-cursor"></div>
@@ -159,7 +169,7 @@
             <div class="section-header">
               <h2 class="section-title">
                 <span class="title-decorator"></span>
-                Technical Skills
+                {{ uiText.sections.skills_title }}
                 <span class="title-decorator"></span>
               </h2>
             </div>
@@ -189,34 +199,45 @@
 
 <script setup lang="ts">
 import profileData from '../data/data.json'
-import { computed } from 'vue'
 
-const personalInfo = profileData.personal_information
+const heroSection = profileData.hero_section
+const uiText = profileData.ui_text
+const features = profileData.features
 
-// Extract skills for the code editor display
-const skillsList = computed(() => {
-  const programming = profileData.technical_skills.programming_frameworks || []
-  const devops = profileData.technical_skills.devops_tools || []
-  return [...programming, ...devops]
-})
-
-const features = [
-  {
-    icon: 'mdi-rocket-launch',
-    title: 'Fast Learner',
-    description: 'Able to quickly grasp and apply new technologies efficiently and effectively.'
-  },
-  {
-    icon: 'mdi-puzzle',
-    title: 'Problem Solver',
-    description: 'Strong logical thinking, capable of analyzing and finding optimal solutions for complex problems.'
-  },
-  {
-    icon: 'mdi-account-group',
-    title: 'Team Player',
-    description: 'Good communication skills, can work effectively in diverse team environments.'
+// Download CV function
+const downloadCV = async () => {
+  try {
+    // Tự động detect base URL
+    const baseUrl = import.meta.env.BASE_URL || '/vue-portfolio/'
+    const pdfUrl = `${baseUrl}MyCV.pdf`
+    
+    // Tạo URL cho file PDF
+    const response = await fetch(pdfUrl)
+    
+    if (!response.ok) {
+      throw new Error('File not found')
+    }
+    
+    const blob = await response.blob()
+    const url = window.URL.createObjectURL(blob)
+    
+    // Tạo link download
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'Le_Minh_That_CV.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    
+    // Cleanup URL
+    window.URL.revokeObjectURL(url)
+  } catch (error) {
+    console.error('Error downloading CV:', error)
+    // Fallback: mở file trong tab mới
+    const baseUrl = import.meta.env.BASE_URL || '/vue-portfolio/'
+    window.open(`${baseUrl}MyCV.pdf`, '_blank')
   }
-]
+}
 
 // Extract main skills from the JSON data
 const programmingSkills = profileData.technical_skills.programming_frameworks.map(skill => {
@@ -383,7 +404,27 @@ const mainSkills = [...programmingSkills, ...devopsSkills]
 
 .hero-buttons {
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin: 2rem 0;
+  max-width: 100%;
+}
+
+.button-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.button-row:first-child .tech-button {
+  flex: 1;
+  min-width: 140px;
+  max-width: 180px;
+}
+
+.button-row:last-child .tech-button {
+  width: calc(100% - 0rem);
+  max-width: calc(360px + 1rem);
 }
 
 .tech-button {
@@ -393,6 +434,11 @@ const mainSkills = [...programmingSkills, ...devopsSkills]
   padding: 0.8rem 1.5rem;
   font-weight: 500;
   transition: all 0.3s ease;
+  min-width: 140px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .primary-btn {
@@ -417,14 +463,52 @@ const mainSkills = [...programmingSkills, ...devopsSkills]
   border-color: #0FFCBE;
 }
 
+.download-btn {
+  background: rgba(16, 110, 190, 0.1);
+  color: #106EBE;
+  border: 1px solid rgba(16, 110, 190, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.download-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(16, 110, 190, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.download-btn:hover::before {
+  left: 100%;
+}
+
+.download-btn:hover {
+  background: rgba(16, 110, 190, 0.2);
+  border-color: #106EBE;
+  color: #0FFCBE;
+  box-shadow: 0 5px 15px rgba(16, 110, 190, 0.3);
+  transform: translateY(-2px);
+}
+
 .btn-text {
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
 .btn-icon {
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tech-stats {
@@ -467,7 +551,7 @@ const mainSkills = [...programmingSkills, ...devopsSkills]
 
 .code-editor {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   background: #0d1117;
   border-radius: 10px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
@@ -521,7 +605,7 @@ const mainSkills = [...programmingSkills, ...devopsSkills]
   position: relative;
   font-family: 'Fira Code', monospace;
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.8;
   color: #c9d1d9;
   display: flex;
   width: 100%;
@@ -858,13 +942,16 @@ code:hover span:hover {
     flex-direction: column;
   }
   
-  .tech-button {
-    width: 100%;
-    margin-bottom: 1rem;
+  .button-row {
+    flex-direction: column;
   }
   
-  .secondary-btn {
-    margin-left: 0 !important;
+  .button-row:first-child .tech-button,
+  .button-row:last-child .tech-button {
+    width: 100%;
+    margin-bottom: 1rem;
+    flex: none;
+    max-width: none;
   }
   
   .skills-grid {

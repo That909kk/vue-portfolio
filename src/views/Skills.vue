@@ -8,10 +8,10 @@
           <v-col cols="12" lg="10" class="text-center">
             <h1 class="tech-title">
               <span class="code-bracket">&lt;</span>
-              Technical Skills
+              {{ uiText.sections.skills_title }}
               <span class="code-bracket">/&gt;</span>
             </h1>
-            <p class="tech-subtitle">My technical expertise and proficiency in various technologies</p>
+            <p class="tech-subtitle">{{ uiText.sections.skills_subtitle }}</p>
           </v-col>
         </v-row>
       </v-container>
@@ -204,6 +204,8 @@
 
 <script setup lang="ts">
 import profileData from '../data/data.json'
+
+const uiText = profileData.ui_text
 
 // Function to get skill icon based on name
 function getSkillIcon(skillName: string): string {

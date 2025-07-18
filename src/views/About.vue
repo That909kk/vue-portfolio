@@ -8,10 +8,10 @@
           <v-col cols="12" lg="10" class="text-center">
             <h1 class="tech-title">
               <span class="code-bracket">&lt;</span>
-              About Me
+              {{ uiText.sections.about_title }}
               <span class="code-bracket">/&gt;</span>
             </h1>
-            <p class="tech-subtitle">Get to know me better - my story, education, and background</p>
+            <p class="tech-subtitle">{{ uiText.sections.about_subtitle }}</p>
           </v-col>
         </v-row>
       </v-container>
@@ -193,6 +193,8 @@
 
 <script setup lang="ts">
 import profileData from '../data/data.json'
+
+const uiText = profileData.ui_text
 
 // Function to format date
 function formatDate(dateString: string): string {

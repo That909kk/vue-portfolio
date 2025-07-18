@@ -1,4 +1,70 @@
 {
+  "site_config": {
+    "title": "Le Minh That - Portfolio",
+    "description": "Modern Vue.js portfolio website with tech-themed design",
+    "keywords": "software engineer, vue.js, portfolio, web developer, full-stack developer",
+    "author": "Le Minh That",
+    "base_url": "https://That909kk.github.io/vue-portfolio/",
+    "favicon": "/vite.svg"
+  },
+  "hero_section": {
+    "greeting": "Hello World! I'm",
+    "name": "Le Minh That",
+    "title": "Software Engineering Student",
+    "subtitle": "Passionate about building innovative solutions with modern technologies",
+    "description": "I'm a final-year Software Engineering student with a strong interest in new technologies, currently seeking an internship opportunity to apply and enhance my skills in a real-world environment.",
+    "cta_text": "Get In Touch",
+    "cta_link": "/contact",
+    "resume_text": "View Projects",
+    "resume_link": "/projects",
+    "typing_text": "Hello World! I'm",
+    "bio_comment": "Passionate developer focused on creating modern web applications",
+    "tech_stats": [
+      {
+        "value": "1",
+        "label": "Year Experience"
+      },
+      {
+        "value": "10+",
+        "label": "Projects"
+      },
+      {
+        "value": "5+",
+        "label": "Technologies"
+      }
+    ],
+    "code_snippet": {
+      "title": "const developer = {",
+      "properties": {
+        "name": "Le Minh That",
+        "role": "Software Engineering Student",
+        "email": "mthat456@gmail.com",
+        "github": "https://github.com/That909kk",
+        "location": "Ho Chi Minh City, Vietnam",
+        "skills": ["Java", "Spring Boot", "Node.js", "React Native", "Python", "Docker"],
+        "experience": "2+ years",
+        "specialization": ["Full-Stack Development", "Mobile Development", "Cloud Computing"],
+        "currentFocus": "Seeking internship opportunities"
+      }
+    }
+  },
+  "features": [
+    {
+      "icon": "mdi-rocket-launch",
+      "title": "Fast Learner",
+      "description": "Able to quickly grasp and apply new technologies efficiently and effectively."
+    },
+    {
+      "icon": "mdi-puzzle",
+      "title": "Problem Solver",
+      "description": "Strong logical thinking, capable of analyzing and finding optimal solutions for complex problems."
+    },
+    {
+      "icon": "mdi-account-group",
+      "title": "Team Player",
+      "description": "Good communication skills, can work effectively in diverse team environments."
+    }
+  ],
   "about_me": "I'm a final-year Software Engineering student with a strong interest in new technologies, currently seeking an internship opportunity to apply and enhance my skills in a real-world environment. I have hands-on experience working with Java (Spring Boot), Node.js, and building user interfaces using Reactjs and React Native. I'm also familiar with Docker, RESTful APIs. I'm a fast learner, a collaborative team player, and a problem-solver who is always eager to explore new technologies. I believe my enthusiasm, adaptability, and willingness to grow will allow me to contribute positively to any development team.",
   "personal_information": {
     "name": "Le Minh That",
@@ -9,7 +75,10 @@
     "date_of_birth": "2003-02-21",
     "address": "Tay Thanh, Tan Phu, Ho Chi Minh City",
     "location": "Ho Chi Minh City, Vietnam",
-    "github": "https://github.com/That909kk"
+    "github": "https://github.com/That909kk",
+    "linkedin": "https://linkedin.com/in/le-minh-that",
+    "facebook": "https://facebook.com/leminhthat",
+    "twitter": "https://twitter.com/leminhthat"
   },
   "education": {
     "university": "Industrial University of Ho Chi Minh City",
@@ -18,7 +87,7 @@
     "period": "2021 – 2025 (Expected)",
     "gpa": "3.0 / 4.0",
     "languages": {
-      "english": "Expected 6/2025",
+      "english": "TOIEC 660",
       "vietnamese": "Native"
     }
   },
@@ -83,7 +152,9 @@
         "Microservices"
       ],
       "description": "Developed a university enrollment system using microservices architecture, working on both backend and frontend. Backend: Built scalable RESTful APIs with Spring Boot, using PostgreSQL, MongoDB, Redis, and Kafka for messaging. Frontend: Designed and implemented a responsive interface with Reactjs. Infrastructure: Containerized services with Docker, routed traffic via Nginx, and integrated Zipkin for distributed tracing. This project helped me grasp core microservices concepts such as service independence, RESTful API design, Kafka-based communication, and traffic routing with Nginx. I also learned how Zipkin enhances debugging and monitoring across services. These experiences equipped me with the ability to build scalable, maintainable systems—skills I'm eager to apply in future full-stack development projects.",
-      "github": "https://github.com/HKThanh/University-Enrollment-System.git"
+      "github": "https://github.com/HKThanh/University-Enrollment-System.git",
+      "demo": "",
+      "image": "/assets/project-1.jpg"
     },
     {
       "name": "Real-Time Welo Chat Application",
@@ -99,7 +170,128 @@
         "Docker"
       ],
       "description": "Developed a real-time chat mobile application using React Native and Socket.io, supporting core features like message sending, file sharing, and live updates. Contributed to the backend with Express.js, integrating AWS S3 for file storage. Worked in a team using MCP Server and GitHub Copilot, which helped reduce development time. Through the project, I improved my understanding of team communication in backend/frontend collaboration, gained hands-on experience in AI-assisted development, and deepened my knowledge of React Native and software automation tools.",
-      "github": "https://github.com/HKThanh/subproject-app-chat-CNM.git"
+      "github": "https://github.com/HKThanh/subproject-app-chat-CNM.git",
+      "demo": "",
+      "image": "/assets/project-2.jpg"
     }
-  ]
+  ],
+  "contact_info": {
+    "email": {
+      "label": "Email",
+      "value": "mthat456@gmail.com",
+      "icon": "mdi-email",
+      "color": "#106EBE"
+    },
+    "phone": {
+      "label": "Phone",
+      "value": "0825371577",
+      "icon": "mdi-phone",
+      "color": "#0FFCBE"
+    },
+    "location": {
+      "label": "Location",
+      "value": "Ho Chi Minh City, Vietnam",
+      "icon": "mdi-map-marker",
+      "color": "#106EBE"
+    },
+    "github": {
+      "label": "GitHub",
+      "value": "https://github.com/That909kk",
+      "icon": "mdi-github",
+      "color": "#333"
+    }
+  },
+  "social_links": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/That909kk",
+      "icon": "mdi-github",
+      "color": "#333"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/le-minh-that",
+      "icon": "mdi-linkedin",
+      "color": "#0077B5"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:mthat456@gmail.com",
+      "icon": "mdi-email",
+      "color": "#106EBE"
+    }
+  ],
+  "working_hours": [
+    {
+      "day": "Monday - Friday",
+      "hours": "8:00 - 17:00"
+    },
+    {
+      "day": "Saturday",
+      "hours": "8:00 - 12:00"
+    },
+    {
+      "day": "Sunday",
+      "hours": "By appointment"
+    }
+  ],
+  "github_stats": [
+    {
+      "icon": "mdi-source-repository",
+      "value": "10+",
+      "label": "Repositories"
+    },
+    {
+      "icon": "mdi-star",
+      "value": "50+",
+      "label": "Stars"
+    },
+    {
+      "icon": "mdi-source-fork",
+      "value": "15+",
+      "label": "Forks"
+    },
+    {
+      "icon": "mdi-account-multiple",
+      "value": "5+",
+      "label": "Contributors"
+    }
+  ],
+  "ui_text": {
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "sections": {
+      "about_title": "About Me",
+      "about_subtitle": "Get to know me better",
+      "skills_title": "Technical Skills",
+      "skills_subtitle": "My technical expertise and proficiency in various technologies",
+      "projects_title": "Projects",
+      "projects_subtitle": "A showcase of my technical work and coding projects",
+      "contact_title": "Contact",
+      "contact_subtitle": "Let's connect! I'm always open to discussing new opportunities and collaborations."
+    },
+    "buttons": {
+      "learn_more": "Learn More",
+      "view_projects": "View Projects",
+      "get_in_touch": "Get In Touch",
+      "send_message": "Send Message",
+      "download_cv": "Download CV",
+      "view_github": "View GitHub Profile",
+      "view_demo": "View Demo",
+      "view_code": "View Code"
+    },
+    "forms": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Your Message",
+      "send": "Send Message",
+      "required": "Required field"
+    }
+  }
 }

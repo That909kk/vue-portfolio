@@ -5,4 +5,5 @@ import vuetify from 'vite-plugin-vuetify'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue(), vuetify()],
+  base: '/vue-portfolio/',
 })

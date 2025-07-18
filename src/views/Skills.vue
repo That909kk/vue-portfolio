@@ -274,7 +274,7 @@ function getSkillColor(skillName: string): string {
 }
 
 // Function to get skill level (for progress bars)
-function getSkillLevel(skillName: string): number {
+function getSkillLevel(_skillName: string): number {
   // Return 100% for all skills to show full progress bars
   return 100
 }

@@ -113,11 +113,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRoute } from 'vue-router'
 
-const route = useRoute()
 const drawer = ref(false)
-const activeTab = ref(0)
 
 const navItems = [
   { title: 'Home', path: '/', icon: 'mdi-home' },

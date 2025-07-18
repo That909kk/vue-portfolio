@@ -1,3 +1,4 @@
+import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
@@ -22,4 +23,9 @@ const routes: Array<RouteRecordRaw> = routesData.map(route => ({
   component: componentMap[route.component]
 }))
 
-export default routes
+const router = createRouter({
+  history: createWebHistory('/vue-portfolio/'),
+  routes
+})
+
+export default router

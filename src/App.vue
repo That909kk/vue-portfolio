@@ -100,7 +100,7 @@
               </div>
               <div class="terminal-content">
                 <span class="terminal-prompt">$ </span>
-                <span class="terminal-text">echo "&copy; {{ new Date().getFullYear() }} Le Minh That | Built with Vue.js & Vuetify"</span>
+                <span class="terminal-text">echo "&copy; {{ new Date().getFullYear() }} Created By That909kk(F.L.Zemeth/Le Minh That) "</span>
                 <span class="terminal-cursor">_</span>
               </div>
             </div>

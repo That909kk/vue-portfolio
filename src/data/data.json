@@ -10,7 +10,7 @@
   "hero_section": {
     "greeting": "Hello World! I'm",
     "name": "Le Minh That",
-    "title": "Software Engineering Student",
+    "title": "Fresher Quality Control Engineer",
     "subtitle": "Passionate about building innovative solutions with modern technologies",
     "description": "I'm a final-year Software Engineering student with a strong interest in new technologies, currently seeking an internship opportunity to apply and enhance my skills in a real-world environment.",
     "cta_text": "Get In Touch",
@@ -21,8 +21,8 @@
     "bio_comment": "Passionate developer focused on creating modern web applications",
     "tech_stats": [
       {
-        "value": "1",
-        "label": "Year Experience"
+        "value": "3",
+        "label": "Months Experience"
       },
       {
         "value": "10+",
@@ -37,7 +37,7 @@
       "title": "const developer = {",
       "properties": {
         "name": "Le Minh That",
-        "role": "Software Engineering Student",
+        "role": "Quality Control Engineer",
         "email": "mthat456@gmail.com",
         "github": "https://github.com/That909kk",
         "location": "Ho Chi Minh City, Vietnam",
@@ -65,7 +65,7 @@
       "description": "Good communication skills, can work effectively in diverse team environments."
     }
   ],
-  "about_me": "I'm a final-year Software Engineering student with a strong interest in new technologies, currently seeking an internship opportunity to apply and enhance my skills in a real-world environment. I have hands-on experience working with Java (Spring Boot), Node.js, and building user interfaces using Reactjs and React Native. I'm also familiar with Docker, RESTful APIs. I'm a fast learner, a collaborative team player, and a problem-solver who is always eager to explore new technologies. I believe my enthusiasm, adaptability, and willingness to grow will allow me to contribute positively to any development team.",
+  "about_me": "Entry-level Quality Control (QC) professional with internship experience in a finance/banking environment (Core Banking). Solid grasp of SDLC/STLC, capable of translating requirements into actionable test cases, executing functional/UI tests, and reporting/triaging defects in Jira. Comfortable collaborating with Dev/BA during UAT. Programming background (Java/Spring Boot, React Native) supports system understanding and communication with technical teams.",
   "personal_information": {
     "name": "Le Minh That",
     "role": "INTERN QUALITY CONTROL ENGINEER",
@@ -84,10 +84,10 @@
     "university": "Industrial University of Ho Chi Minh City",
     "degree": "Bachelor of Software Engineering",
     "major": "Software Engineering",
-    "period": "2021 – 2025 (Expected)",
+    "period": "2021 – 2026 (Expected)",
     "gpa": "3.0 / 4.0",
     "languages": {
-      "english": "TOIEC 660",
+      "english": "TOEIC 660",
       "vietnamese": "Native"
     }
   },
